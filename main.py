@@ -59,7 +59,8 @@ if not data or len(data) == 0:
 
 logger.info("Loaded tweets=%s" % data)
 
-for tweet in data:
+# Retweet the oldest tweets first
+for tweet in reversed(data):
     client.retweet(tweet.id)
 
 # Update cache
